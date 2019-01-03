@@ -2,7 +2,9 @@
 protobuf compile to json file
 
 install
+```javascript
   npm install protobuf-json-webpack-plugin --save-dev
+```
 
 webpack config
 ```javascript
