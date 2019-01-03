@@ -1,0 +1,14 @@
+{
+  "name": "protobuf-json-webpack-plugin",
+  "version": "1.0.0",
+  "description": "protobufjs to json file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zhangshaolong",
+  "license": "ISC",
+  "devDependencies": {
+    "protobufjs": "^6.8.6"
+  }
+}
