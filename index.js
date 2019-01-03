@@ -7,10 +7,17 @@ const compileProtos = (inputs, output) => {
   pbjs.main(['-t', 'json'].concat(inputs), (err, content) => {
     if (!err) {
       try {
-        fs.writeFileSync(output, JSON.stringify(JSON.parse(content)))
+        fs.writeFileSync(output, generateJsonStruct(JSON.stringify(JSON.parse(content), null, 2)))
       } catch (e) {}
     }
   })
+}
+
+const generateJsonStruct = (content) => {
+  return `import protobuf from 'protobufjs'\n
+const struct = ${content}\n
+export default protobuf.Root.fromJSON(struct)
+`
 }
 
 class Proto2JsonPlugin {

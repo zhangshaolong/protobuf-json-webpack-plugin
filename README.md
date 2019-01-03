@@ -19,3 +19,10 @@ plugins: [
 ]
 
 ```
+
+js call
+```javascript
+const struct = require('${output js file path}')
+const yyyy = struct.lookupType('xxx.Yyyy')
+const jsData = yyyy.decode(data)
+```
