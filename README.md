@@ -14,7 +14,7 @@ const Proto2JsonPlugin = require('protobuf-json-webpack-plugin')
 plugins: [
   new Proto2JsonPlugin(
     inputs: ['/a/b/c.proto', '/a/c/*.proto'],
-    output: '/a/b/c/xxxx.json'
+    output: '/a/b/c/xxxx.js'
   )
 ]
 
