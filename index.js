@@ -27,15 +27,14 @@ class Proto2JsonPlugin {
 
   apply (compiler) {
     if (compiler.hooks) {
-      compiler.hooks.beforeCompile.tap('Proto2JsonPlugin', (compilation) => {
+      compiler.hooks.afterResolvers.tap('Proto2JsonPlugin', (compilation) => {
         compileProtos(this.options.inputs, this.options.output)
         console.log(`compile protos ${JSON.stringify(this.options.inputs)} done!`)
       })
-    } else {
-      compiler.plugin('compile', () => {
-        compileProtos(this.options.inputs, this.options.output)
-        console.log(`compile protos ${JSON.stringify(this.options.inputs)} done!`)
-      })
+    } else if (!this.compiled) {
+      compileProtos(this.options.inputs, this.options.output)
+      console.log(`compile protos ${JSON.stringify(this.options.inputs)} done!`)
+      this.compiled = true
     }
   }
 }
